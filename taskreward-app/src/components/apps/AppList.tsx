@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import AppCard from "./AppCard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { App } from "../../types/index";
 
 export default function AppList() {
   const { data: apps, isLoading } = useQuery({
@@ -24,7 +25,7 @@ export default function AppList() {
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {apps?.map((app) => (
+      {apps?.map((app: App) => (
         <AppCard key={app?.id} app={app} />
       ))}
     </div>
